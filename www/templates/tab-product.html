@@ -1,0 +1,19 @@
+<ion-view view-title="สินค้า" ng-init="getAllproduct()">
+  <ion-content class="padding">
+        <div class="row shop-products-narrow-cards-outer">
+            <div ng-repeat="product in datas" class="col col-50 shop-product-narrow-card" ng-click="detail(product)">
+                <div class="list card">
+                    <div class="item item-image">
+                        <pre-img ratio="_1_1" helper-class="main-image">
+                            <img ng-src="{{product.images}}" spinner-on-load>
+                        </pre-img>
+                    </div>
+                    <div class="item item-body">
+                        <h2 class="card-title">{{product.name}}</h2>
+                        <p class="card-description"><b>฿{{product.price}}</b></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+  </ion-content>
+</ion-view>

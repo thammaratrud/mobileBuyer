@@ -1,0 +1,70 @@
+<ion-view view-title="สินค้า" ng-init="getAllproduct()">
+    <ion-nav-buttons side="left">
+        <button class="button button-icon button-clear" ui-sref="tab.product">
+            <i class="ion-ios-arrow-back color-gray font-30"></i>
+        </button>
+    </ion-nav-buttons>
+    <ion-nav-buttons side="right">
+        <a class="button button-icon">
+            <i class="icon ion-ios-cart" ng-class="{'color-gray' : ('app.product-detail' | includedByState)}">
+          <span class="badge badge-assertive badge-cart">{{countProduct.getCountProduct()}}</span>
+          </i>
+        </a>
+    </ion-nav-buttons>
+    <ion-content class="padding">
+        <div class="row shop-products-narrow-cards-outer">
+            <div class=" shop-product-narrow-card">
+                <div class="list card">
+                    <div class="item item-image">
+                        <pre-img ratio="_1_1" helper-class="main-image">
+                            <img ng-src="{{data.images}}" spinner-on-load>
+                        </pre-img>
+                    </div>
+                    <div class="item item-body">
+                        <div class="row">
+                            <h2 class="product-title">{{data.name}}</h2>
+                        </div>
+                        <div class="row">
+                            <div class="col-col-33">
+                                <p class="card-title">{{data.description}}</p>
+                                <p class="product-price ">฿{{data.price}}</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="row item">
+            <div class="col col-30">
+                <button class="button button-block button button-balanced checkout-btn" ng-click="openModal()">ใส่ตะกร้า</button>
+            </div>
+
+            <div class="col col-70">
+                <button class="button button-block button-energized checkout-btn" ng-click="showAddToCartPopup(product,true)">สั่งซื้อทันที</button>
+            </div>
+        </div>
+    </ion-content>
+    <script id="my-modal.html" type="text/ng-template">
+      <ion-modal-view>
+        <ion-header-bar>
+        <center><h1 class="title">ใส่ตะกร้า</h1></center>  
+          <button ng-click="closeModal()">Close</button>
+        </ion-header-bar>
+        <ion-content class="padding">
+            
+<div>
+
+         <p class="product-price ">ราคาสินค้าต่อชิ้น ฿{{data.price}}</p>
+  <select ng-model="qty">
+            <option ng-repeat="i in [1,2,3,4,5,6,7,8,9,10]" value="{{i}}">{{i}}</option>
+        </select> 
+
+          <button ng-click="checkqty(qty)">ตกลง</button>
+
+</div>
+        </ion-content>
+      </ion-modal-view>
+    </script>
+
+</ion-view>

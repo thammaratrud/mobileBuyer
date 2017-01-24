@@ -1,0 +1,18 @@
+<ion-view view-title="Login" name="login-view">
+    <ion-content class="padding">
+        <div class="row form-wrapper">
+            <div class="col">
+                <form name="login_form" class="" novalidate>
+                    <div class="form-fields-outer list list-inset">
+                        <label class="item item-input">
+                            <input type="text" placeholder="Username" name="username" ng-model="credentials.username" required> </label>
+                        
+                        <button type="submit" class="log-in button button-block" ng-click="doLogIn(credentials)">Log In</button>
+                        <p ng-show="error" class="message error">{{error}}</p>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </ion-content>
+</ion-view>
